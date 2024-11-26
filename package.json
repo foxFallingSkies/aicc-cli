@@ -1,0 +1,138 @@
+{
+  "name": "aicc-cli",
+  "displayName": "aiccCli",
+  "description": "aicc ui 插件",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "publisher": "aicc-ui-vscode",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "views": {
+      "snippetsView": [
+        {
+          "id": "view.aiccCli.snippetsView",
+          "name": "代码片段列表"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "snippetsView",
+          "title": "Aicc Snippets",
+          "icon": "./logo/AICC.svg"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "extension.aiccCli.addSnippets",
+          "group": "navigation",
+          "when": "view == view.aiccCli.snippetsView"
+        },
+        {
+          "command": "extension.aiccCli.searchSnippets",
+          "group": "navigation",
+          "when": "view == view.aiccCli.snippetsView"
+        },
+        {
+          "command": "extension.aiccCli.refreshSnippets",
+          "group": "navigation",
+          "when": "view == view.aiccCli.snippetsView"
+        },
+        {
+          "command": "extension.aiccCli.downLoadSnippets",
+          "group": "navigation",
+          "when": "view == view.aiccCli.snippetsView"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "extension.aiccCli.createSnippets",
+          "when": "editor.hasSelection",
+          "group": "snippet"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "extension.aiccCli.edit",
+          "group": "inline",
+          "when": "view == view.aiccCli.snippetsView && viewItem !== 'folder'"
+        },
+        {
+          "command": "extension.aiccCli.deleteSnippets",
+          "group": "inline",
+          "when": "view == view.aiccCli.snippetsView && viewItem !== 'folder'"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "extension.aiccCli.createSnippets",
+        "title": "创建代码片段",
+        "group": "snippet"
+      },
+      {
+        "command": "extension.aiccCli.addSnippets",
+        "title": "添加",
+        "icon": "$(add)"
+      },
+      {
+        "command": "extension.aiccCli.refreshSnippets",
+        "title": "刷新",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "extension.aiccCli.searchSnippets",
+        "title": "搜索",
+        "icon": "$(search)"
+      },
+      {
+        "command": "extension.aiccCli.edit",
+        "title": "编辑",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "extension.aiccCli.deleteSnippets",
+        "title": "删除",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "extension.aiccCli.downLoadSnippets",
+        "title": "同步",
+        "icon": "$(sync)"
+      }
+    ]
+  },
+  
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.95.0",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.13.0",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "comment-json": "^4.2.5",
+    "uuid": "^11.0.3"
+  }
+}

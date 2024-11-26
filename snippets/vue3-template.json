@@ -1,0 +1,25 @@
+{
+    "Print to console": {
+        "prefix": "vue",
+        "body": [
+            "<!-- $1 -->",
+            "<template>",
+            "<div class='$2'></div>",
+            "</template>",
+            "",
+            "<script setup>",
+            "import { ref, reactive, onMounted, watch } from 'vue'",
+            "$3",
+            "/** data */",
+            "",
+            "/** hooks */",
+            "",
+            "/** methods */",
+            "",
+            "</script>",
+            "<style lang='scss' scoped>",
+            "</style>"
+        ],
+        "description": "vue3 template"
+    }
+}
